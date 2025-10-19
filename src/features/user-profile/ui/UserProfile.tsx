@@ -9,42 +9,33 @@ interface Props {
 }
 
 export const UserProfile: React.FC<Props> = ({ user, bio, onBioChange, onBioBlur }) => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 24,
-      gap: 16,
-    }}
+  <div className='flex flex-col justify-center items-center mt-6 gap-4'
   >
     {user.photo_url && (
       <Image
         src={user.photo_url}
-        style={{ borderRadius: '50%', width: 80, height: 80 }}
+        className='rounded-full w-20 h  -20'
       />
     )}
-    <div>{user.first_name} {user.last_name ?? ''}</div>
-    {user.username && <div>@{user.username}</div>}
 
-    <h1 style={{ marginTop: 8, fontSize: 20, textAlign: 'center' }}>{bio}</h1>
+    <div className='text-lg font-medium'>
+      {user.first_name} {user.last_name ?? ''}
+    </div>
 
-    <div style={{ marginTop: 24, width: '90%' }}>
+    {user.username && (
+      <div className='text-gray-600'>@{user.username}</div>
+      )}
+
+    <h1 className='mt-2 text-xl text-center font-semibold'>{bio}</h1>
+
+    <div className='mt-2 w-11/12'>
       <textarea
         placeholder="Напишите что-то о себе..."
         value={bio}
         onChange={(e) => onBioChange(e.target.value)}
         onBlur={onBioBlur}
-        style={{
-          width: '100%',
-          minHeight: 80,
-          padding: 12,
-          borderRadius: 12,
-          border: '1px solid #ccc',
-          fontSize: 14,
-          resize: 'none',
-        }}
+        className='w-full min-h-20 p-3 rounded-xl border border-gray-300 text-sm resize-none focus:border-blue-500
+        focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors'
       />
     </div>
   </div>
