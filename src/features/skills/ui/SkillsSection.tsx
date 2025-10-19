@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SkillsList } from './SkillList';
 import { AddSkillForm } from './AddSkillForm';
-import { useSkills } from '../../hooks/useSkills';
+import { useSkills } from '../hooks/useSkills';
 
 const SkillsSection = () => {
   const { skills, loading, addSkill, deleteSkill } = useSkills();

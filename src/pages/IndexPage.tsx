@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { Page } from '@/components/Page';
+import { Page } from '@/components/layout/Page';
 import { Cell, List } from '@telegram-apps/telegram-ui';
-import { useTelegramUser } from './hooks/useTelegramUser';
-import { useCloudBio } from './hooks/useCloudBio';
-import { UserProfile } from './components/UserProfile';
-import SkillsSection from './components/Skill/SkillsSection';
+import { useTelegramUser } from '@/features/user-profile/hooks/useTelegramUser';
+import { useCloudBio } from '@/features/user-profile/hooks/useCloudBio';
+import { UserProfile } from '@/features/user-profile/ui/UserProfile';
+import SkillsSection from '@/features/skills/ui/SkillsSection';
 
 export const IndexPage: FC = () => {
   const { user, ready } = useTelegramUser();
@@ -28,7 +28,7 @@ export const IndexPage: FC = () => {
           <UserProfile
             user={user}
             bio={bio}
-            onBioChange={(v) => {
+            onBioChange={(v: string) => {
               setBio(v);
               saveBioDebounced(v);
             }}

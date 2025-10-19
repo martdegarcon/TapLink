@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { cloudStorage } from '@telegram-apps/sdk';
-import { debounce } from '@/helpers/debounce';
+import { debounce } from '@/utils/debounce';
 
 export const useCloudBio = () => {
   const [bio, setBio] = useState('');
