@@ -4,6 +4,7 @@ import { Cell, List } from '@telegram-apps/telegram-ui';
 import { useTelegramUser } from './hooks/useTelegramUser';
 import { useCloudBio } from './hooks/useCloudBio';
 import { UserProfile } from './components/UserProfile';
+import SkillsSection from './components/Skill/SkillsSection';
 
 export const IndexPage: FC = () => {
   const { user, ready } = useTelegramUser();
@@ -22,6 +23,7 @@ export const IndexPage: FC = () => {
   return (
     <Page back={false}>
       <List>
+        <>
         {user ? (
           <UserProfile
             user={user}
@@ -35,6 +37,8 @@ export const IndexPage: FC = () => {
         ) : (
           <Cell>No user data</Cell>
         )}
+              <SkillsSection />
+        </>
       </List>
     </Page>
   );
