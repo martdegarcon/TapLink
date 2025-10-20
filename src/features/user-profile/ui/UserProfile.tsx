@@ -9,12 +9,12 @@ interface Props {
 }
 
 export const UserProfile: React.FC<Props> = ({ user, bio, onBioChange, onBioBlur }) => (
-  <div className='flex flex-col justify-center items-center mt-6 gap-4'
+  <div className='flex flex-col justify-center items-center mt-6 gap-2'
   >
     {user.photo_url && (
       <Image
         src={user.photo_url}
-        className='rounded-full w-20 h  -20'
+        className='rounded-full w-20 h-20'
       />
     )}
 
@@ -23,10 +23,10 @@ export const UserProfile: React.FC<Props> = ({ user, bio, onBioChange, onBioBlur
     </div>
 
     {user.username && (
-      <div className='text-gray-600'>@{user.username}</div>
+      <div className='text-gray-300'>@{user.username}</div>
       )}
 
-    <h1 className='mt-2 text-xl text-center font-semibold'>{bio}</h1>
+    <h1 className='text-xl text-center font-semibold'>{bio}</h1>
 
     <div className='mt-2 w-11/12'>
       <textarea
@@ -35,7 +35,7 @@ export const UserProfile: React.FC<Props> = ({ user, bio, onBioChange, onBioBlur
         onChange={(e) => onBioChange(e.target.value)}
         onBlur={onBioBlur}
         className='w-full min-h-20 p-3 rounded-xl border border-gray-300 text-sm resize-none focus:border-blue-500
-        focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors'
+        focus:outline-none transition-colors'
       />
     </div>
   </div>
